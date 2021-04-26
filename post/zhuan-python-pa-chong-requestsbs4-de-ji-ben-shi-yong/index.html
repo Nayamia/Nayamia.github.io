@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>【转】python爬虫（requests+bs4的基本使用） | Gridea</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://nayamia.github.io//favicon.ico?v=1619441985696">
+<link rel="stylesheet" href="https://nayamia.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+原帖链接：python爬虫（requests+bs4的基本使用）
+原作者：小熊&amp;Gary
+转载已征得同意
+
+# -*- coding: utf-8 -*-
+# author:Gary
+# 第一步，导入需要用到的库
+import r..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://nayamia.github.io/">
+        <img src="https://nayamia.github.io//images/avatar.png?v=1619441985696" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://nayamia.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">【转】python爬虫（requests+bs4的基本使用）</h2>
+            <div class="post-date">2021-04-26</div>
+            
+            <div class="post-content" v-pre>
+              <blockquote>
+<p>原帖链接：<a href="https://blog.csdn.net/weixin_44388092/article/details/107297083#comments_15522629">python爬虫（requests+bs4的基本使用）</a></p>
+<p>原作者：<a href="https://blog.csdn.net/weixin_44388092">小熊&amp;Gary</a></p>
+<p>转载已征得同意</p>
+</blockquote>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+# author:Gary
+# 第一步，导入需要用到的库
+import requests
+from bs4 import BeautifulSoup
+
+# 第二步，请求网页内容
+url = 'https://gary666.com/'  # 需要请求的网页的链接
+html = requests.get(url)  # get方式请求数据
+# print(html.status_code)  # 查看请求的状态码（200表示请求正常）
+html.encoding = html.apparent_encoding  # 设置编码，防止由于编码问题导致文字错乱
+# print(html.text)  # 查看请求到的内容
+content = html.text
+
+# 第三步，解析你需要的内容
+# 解析器自带的是html.parser，也可以用lxml，兼容性更好，不过要单独安装第三方库
+soup = BeautifulSoup(content, &quot;html.parser&quot;)
+# 1 按标签名查找标签
+# soup.标签名 # 获取第一个匹配到的标签
+print('获取第一个匹配到的超链接', soup.a)  # 获取第一个匹配到的超链接
+
+# 2 属性
+# soup.标签名.attrs # 获取标签中所有属性名与对应属性值的字典
+print('获取超链接中所有属性名与对应属性值的字典', soup.a.attrs)  # 获取超链接中所有属性名与对应属性值的字典
+# soup.标签名.attrs[&quot;属性名&quot;]获取属性名对应的属性值
+print('获取超链接href属性对应的属性值', soup.a.attrs[&quot;href&quot;])  # 获取超链接href属性对应的属性值
+# soup.标签名[&quot;属性名&quot;]获取属性名对应的属性值的简写
+print('获取超链接href属性对应的属性值的简写', soup.a[&quot;href&quot;])  # 获取超链接href属性对应的属性值的简写
+# soup.标签名.string  # 获取第一个匹配到的标签的内容
+print('获取第一个匹配到的超链接的内容', soup.a.string)  # 获取第一个匹配到的超链接的内容
+# soup.标签名.text  # 获取第一个匹配到的标签以及其所包含的子标签的所有内容
+print('获取第一个匹配到的超链接以及其所包含的子标签的所有内容', soup.a.text)  # 获取第一个匹配到的超链接以及其所包含的子标签的所有内容
+
+# 3 函数
+# soup.标签名.get_text()  # 同soup.标签名.text
+print(soup.a.get_text())  # 同soup.a.text
+# soup.find(&quot;标签名&quot;) # 同soup.标签名
+print(soup.find(&quot;a&quot;))  # 同soup.a
+print(soup.find(&quot;a&quot;, href=&quot;/detail?dbname=life&amp;num=35&quot;))  # 根据属性值定位到第一个匹配到的标签
+# 注意： 若属性名是 class 则需要在后面加个下划线,写成 class_
+# soup.find_all(&quot;标签名&quot;) # 获取匹配到的所有标签, 返回一个列表
+a_list = soup.find_all(&quot;a&quot;)  # 获取所有的超链接
+for a in a_list:  # 循环查看每个超链接的文字和url
+    if a.string is None:  # 如果超链接的内容为空
+        continue
+    else:
+        print(a.string + &quot;:&quot; + a.get(&quot;href&quot;))
+# soup.find_all([&quot;标签1&quot;, &quot;标签2&quot;])   可以获取多种类的标签，通过列表指定获取的多个标签
+soup.find_all([&quot;a&quot;, &quot;div&quot;])  # 可以获取多种类的标签，通过列表指定获取的多个标签
+# soup.find_all(&quot;标签名&quot;, limit=int(n))  # limit参数指定获取个数，为整数
+print(soup.find_all(&quot;a&quot;, limit=2))  # 获取前2个匹配到的超链接
+
+# 第四步，存储数据
+
+
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://nayamia.github.io/post/java-chou-xiang-lei-yu-jie-kou/">
+                  <h3 class="post-title">
+                    Java抽象类与接口
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

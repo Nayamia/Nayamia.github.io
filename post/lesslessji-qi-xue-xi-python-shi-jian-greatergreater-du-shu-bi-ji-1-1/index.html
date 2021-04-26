@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>《机器学习-Python实践》读书笔记 - 1-1 | Gridea</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://nayamia.github.io//favicon.ico?v=1619441985696">
+<link rel="stylesheet" href="https://nayamia.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="1.2 什么是机器学习
+机器学习是多领域的交叉学科，研究计算机如何模拟、学习人的行为获取新知识、技能，重新组织已有知识使之不断完善自己的性能，已有广泛应用。
+算法分为两大类：
+
+监督学习：在学习过程中提供对错指示，让机器自己减少误差。用于分..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://nayamia.github.io/">
+        <img src="https://nayamia.github.io//images/avatar.png?v=1619441985696" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://nayamia.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">《机器学习-Python实践》读书笔记 - 1-1</h2>
+            <div class="post-date">2021-04-26</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="12-什么是机器学习">1.2 什么是机器学习</h2>
+<p>机器学习是多领域的交叉学科，研究计算机如何模拟、学习人的行为获取新知识、技能，重新组织已有知识使之不断完善自己的性能，已有广泛应用。</p>
+<p>算法分为两大类：</p>
+<ol>
+<li>监督学习：在学习过程中提供对错指示，让机器自己减少误差。用于分类喝预测，训练集要求包括输入输出</li>
+<li>无监督学习：又称归纳性学习，用K方式建立中心，通过循环和递减运算减少误差达到分类目的</li>
+</ol>
+<h2 id="13">1.3</h2>
+<p>利用机器学习的预测模型来解决问题有六个基本步骤</p>
+<figure data-type="image" tabindex="1"><img src="C:%5CUsers%5CNayami%5CDocuments%5CGitHub%5CNayamia.github.io%5Cimg%5CMD%E6%8F%92%E5%9B%BE%5C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%AD%E5%A4%A7%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4.jpg" alt="" loading="lazy"></figure>
+<p><strong>定义问题</strong>：研究和提炼问题的特征，以帮助我们更好地理解项目的目标。</p>
+<p>· <strong>数据理解</strong>：通过描述性统计和可视化来分析现有的数据。</p>
+<p>· <strong>数据准备</strong>：对数据进行格式化，以便于构建一个预测模型。</p>
+<p>· <strong>评估算法</strong>：通过一定的方法分离一部分数据，用来评估算法模型，并选取一部分代表数据进行分析，以改善模型。</p>
+<p>· <strong>优化模型</strong>：通过调参和集成算法提升预测结果的准确度。</p>
+<p>· <strong>结果部署</strong>：完成模型，并执行模型来预测结果和展示。</p>
+<h2 id="14-学习原则">1.4 学习原则</h2>
+<ol>
+<li>创建半正式的工作产品：以文章、技术报告、代码存储形式几下学习内容快速为他人提供可展示的内容</li>
+<li>实时学习：在平时积累知识</li>
+<li>利用现有Skills</li>
+<li>持续不断学习改进</li>
+</ol>
+<h2 id="15-技巧">1.5 技巧</h2>
+<ol>
+<li>启动小项目</li>
+<li>每周完成一个项目保持学习势头、建立积累项目工作区</li>
+<li>分享自己的成果</li>
+</ol>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://nayamia.github.io/post/zhuan-python-pa-chong-requestsbs4-de-ji-ben-shi-yong/">
+                  <h3 class="post-title">
+                    【转】python爬虫（requests+bs4的基本使用）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
